@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+    width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.3)30%,rgba(0,0,0,0.3)40%),  url(photo1.jpg) ; 
+  background-color: rgba(151, 155, 125, 0.82);
+  background-position: center;
+  background-size: cover;
+}
+
+body::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #000000; /* Background of the scrollbar track */
+}
+body::-webkit-scrollbar-track:hover {
+  background:  #d3bba3; /* Background of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #990202; /* Scrollbar thumb color */
+  border-radius: 15px; /* Round the corners of the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #122f56bd; /* Color of the scrollbar thumb when hovered */
+}
+
+
+input::placeholder {
+  color: white;
+}
+
+textarea::placeholder {
+  color: white;
+}
+
+.description{
+  font-size: 15px;
+}
+
+.author{
+  padding-bottom: 20px;
+}
+
+.navbar {
+  width: 1200px;
+  height: 75px;
+  margin: auto;
+  padding-bottom: 50px;
+
+}
+
+.icon {
+  width: 200px;
+  float: left;
+  height: 70px;
+}
+
+.logo {
+  color: #c70808;
+  font-size: 35px;
+  font-family: Arial;
+  padding-left: 5px;
+  float: left;
+  padding-top: 10px;
+  margin-top: 5px
+}
+
+.menu {
+  width: 370px;
+  float: left;
+  height: 70px;
+}
+
+ul {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li {
+  list-style: none;
+  margin-left: 50px;
+  margin-top: 27px;
+  font-size: 14px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Arial;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+  color: #c70808;
+}
+
+.search {
+  width: 350px;
+  float: left;
+  margin-left: 150px;
+  margin-top: 10px;
+}
+
+.srch {
+  font-family: 'Times New Roman';
+  width: 250px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #c70808;
+  margin-top: 13px;
+  color: #fff;
+  border-right: none;
+  font-size: 16px;
+  float: left;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  background: #c70808;
+  border: 2px solid #c70808;
+  margin-top: 13px;
+  color: #fff;
+  font-size: 15px;
+  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #000;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.srch:focus {
+  outline: none;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  padding-left: 100px;
+  margin-right: 20px ;
+  padding-bottom: 30px;
+  
+}
+.book-inner {
+  position: absolute;
+  width: 240px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+.book:hover .book-inner {
+  transform: rotateY(180deg);
+}
+.book-front,
+.book-back {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  backface-visibility: hidden;
+  /* border: 2px solid #2cd551;
+  padding: 20px;  */
+}
+
+img {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  padding-right: 30px ;
+  border: 2px solid #d8d6d6; /* Adjust the width and color of the border as needed */
+  border-radius: 10px; /* Adjust the border radius to control the roundness of the corners */
+  padding: 3px;/* Adjust the width and color of the border as needed */
+}
+.book-back {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  padding-bottom: 20px;
+}
+.book-back:hover{
+  border: 2px solid #2cd551;
+  padding: 20px; 
+}
+.book-back h3 {
+  margin: 0;
+}
+#button1 {
+  margin-top: 30px;
+  padding: 5px 10px;
+  background-color: #28a745; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#button1:hover {
+  background-color: #218838;
+}
+#button1.clicked {
+  background-color: #dc3545; 
+}
+#button2 {
+  margin-top: 30px;
+  padding: 5px 10px;
+  background-color: #28a745; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#button2:hover {
+  background-color: #218838;
+}
+#button3 {
+  margin-top: 30px;
+  padding: 5px 10px;
+  background-color: #28a745; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#button3:hover {
+  background-color: #218838;
+}
+
+#button1, #button2 , #button3{
+  display: inline-block;
+}
+#button1, #button2, #button3 {
+  display: inline-block;
+  margin-right: 1px; /* Optional: Add margin between the buttons */
+  
+}
+
+
