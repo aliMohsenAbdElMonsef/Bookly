@@ -1,0 +1,147 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page </title>
+    <link rel="stylesheet" href=" {% static 'css/homecss.css' %}">
+    <style>
+     .main {
+    width: 108%;
+    height: 150vh;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)30%,rgba(0,0,0,0.5)40%), url("{% static 'images/backGroundImage.jpg' %}");
+    background-color: rgba(151, 155, 125, 0.82);
+    background-position: center;
+    background-size: cover;
+} 
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Bookly</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href= "{% url 'homepage' %}" id="home"class="home">HOME</a></li> 
+                    <li><a href= "{% url 'books' %}" id="Books" class="Books">BOOKS</a></li> 
+                    <li><a href= "{% url 'mybooks' %}" id="MyBooks" class="my-books">MY BOOKS</a></li>
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff %}
+                        <li><a href= "{% url 'addbook' %}" id="AddBooks" class="add-book"> ADD BOOK </a></li> 
+                        {% endif %}
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                    <li><a href= "{% url 'login' %}"  id="logIn"class="log-in"> LOG IN </a></li> 
+                    <li><a href= "{% url 'signup' %}" id="signUp" class="sign-up"> sign up </a></li> 
+                    {% endif %}
+                    
+                    <li><a href= "{% url 'aboutus' %}" id="AboutUs"class="aboutus"> About Us </a></li> 
+                    {% if  user.is_authenticated %}
+                    <li><button id="LogOut" class="log-out" onclick="logoutfun()">LOG OUT</button></li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+            <section class="home" id="home">
+               
+                <div class="home-content">
+                    <div class="content">
+                        <p class="text1" >LET'S MAKE THE BEST INVESTMENT</p>
+                        <h2 class="text2">Read More <br> And Make Success <br> The Result Of Perfection</h2>
+                    </div>
+                    
+                    <div class="image">
+                        <img src="{% static 'images/home.png' %}" alt="">
+                    </div>
+                </div>
+            </section>
+        </div> 
+        
+    </div>
+    <script src="{%static 'js/all.js'%}">
+        // let data = window.localStorage;
+        // // data.clear();
+        // console.log(data);
+        // let mb9 = document.querySelector("#LogOut");
+        // if (JSON.parse(data.getItem("name")) === null) {
+        //     let parent = document.getElementsByClassName("menu")[0];
+        //     let links = parent.querySelectorAll("a");
+        //     links.forEach(item => {
+        //         if (!(item.id === "logIn" || item.id === "signUp")) {
+        //             item.style.display = "none";
+        //         }
+        //     });
+        //     parent.querySelector("button").style.display = "none";
+        // } else {
+        //     document.getElementById("signUp").style.display = "none";
+        // }
+
+        // let users = JSON.parse(data.getItem("users"));
+        // let role = null;
+
+        // for (let i = 0; i < users.length; i++) {
+        //     if (users[i].userName === JSON.parse(data.getItem("name"))) {
+        //         role = users[i];
+        //         break;
+        //     }
+        // }
+
+        // if (role !== null) {
+        //     let role2 = role.class;
+        //     console.log(role2);
+        //     let add = document.getElementsByClassName("add-book")[0];
+        //     if (role2 === "user") {
+        //         add.style.display = "none";
+        //     }
+        //     let btn = document.querySelector(".log-out");
+        //     btn.onclick = function () {
+               
+        //     let parent = document.getElementsByClassName("menu")[0];
+        //     let links = parent.querySelectorAll("a");
+        //     links.forEach(item => {
+        //         if (!(item.id === "logIn" || item.id === "signUp")) {
+        //             item.style.display = "none";
+        //         }
+
+        //     parent.querySelector("button").style.display = "none";
+        // } );
+
+        //         let users = JSON.parse(data.getItem("users"));
+        //         let logged=JSON.parse(data.getItem("name"));
+        //         logged=null;
+        //         data.setItem("name",logged);
+        //     for (let i = 0; i < users.length; i++) {
+        //     if (users[i].userName === JSON.parse(data.getItem("name"))) {
+        //         users[i].loged=false;
+        //         break;
+        //     }
+        //     }
+        //     data.setItem("users",JSON.stringify(users));
+        //         console.log(data);
+        //         document.getElementsByClassName("log-in")[0].style.display = "none";
+        //         location.reload();
+        //         window.location.href = "./login.html";
+        //     };
+        //     if (role.loged === true) {
+        //         document.getElementsByClassName("log-in")[0].style.display = "none";
+        //     } else {
+        //         document.getElementsByClassName("log-out")[0].style.display = "none";
+        //     }
+        // } else {
+        //     let mb = document.querySelector(".Books");
+        //     let mb2 = document.querySelector(".my-books");
+        //     let mb3 = document.querySelector(".add-book"); 
+        //     let mb4 = document.querySelector(".log-out");
+        //     let mb5 = document.querySelector(".home");
+        //     let mb6 = document.querySelector(".log-in");
+        //     let mb7 = document.querySelector(".sign-up");
+        //     let mb8 = document.querySelector(".aboutus");
+        //     mb2.style.display = "none";
+        //     mb3.style.display = "none";
+        //     mb4.style.display = "none";
+        // }
+    </script>
+</body>
+</html>

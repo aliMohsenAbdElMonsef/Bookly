@@ -1,0 +1,64 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Books</title>
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}"  media="(min-width:1000px)">
+<style>
+    .main{
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.5)30%,rgba(0,0,0,0.5)40%), url("{% static 'images/backGroundImage.jpg' %}");
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+}
+    </style>
+</head>
+<body class=main>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">Bookly</h2>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href= "{% url 'homepage' %}" id="home"class="home">HOME</a></li> 
+                <li><a href= "{% url 'books' %}" id="Books" class="Books">BOOKS</a></li> 
+                <li><a href= "{% url 'mybooks' %}" id="MyBooks" class="my-books">MY BOOKS</a></li>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <li><a href= "{% url 'addbook' %}" id="AddBooks" class="add-book"> ADD BOOK </a></li> 
+                    {% endif %}
+                {% endif %}
+                {% if not user.is_authenticated %}
+                <li><a href= "{% url 'login' %}"  id="logIn"class="log-in"> LOG IN </a></li> 
+                <li><a href= "{% url 'signup' %}" id="signUp" class="sign-up"> sign up </a></li> 
+                {% endif %}
+                
+                <li><a href= "{% url 'aboutus' %}" id="AboutUs"class="aboutus"> About Us </a></li> 
+                {% if  user.is_authenticated %}
+                <li><button id="LogOut" class="log-out" onclick="logoutfun()">LOG OUT</button></li>
+                {% endif %}
+                
+            </ul>
+        </div>
+    </div>
+    <div class="content" >
+        <form method="post">
+
+            {% csrf_token %}
+            <p  style="display:  flex;"> Title   {{form.title}} </p>
+            <p style="display:  flex; margin-top: 20px ;"> Author  {{form.author}} </p>
+            <br>
+            <p  style="display:  flex;" > <p style="margin-bottom: 20px ;"> Description</p> {{form.description}} </p>
+            <p style="display:  flex; margin-top: 20px  " > Category  {{form.category}} </p>
+            <button type="submit" id="save" onclick="save()">Edit</button>
+        </form>
+        <span id="alert"></span>
+    </div>
+    <script src="{% static 'js/all.js' %}">
+    </script>
+</body>
+</html>

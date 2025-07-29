@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url("{% static 'images/back1t.jpg' %}");
+            color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            height: 790px;
+            background-position: center;
+            background-size: cover;
+            
+        }
+
+        .learnmore {
+            margin-top: 30px;
+            background-color: #cc5500;
+            color: #f5f5f5;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .learnmore:hover {
+            background-color: #990202;
+        }
+        .signup-now{
+            margin-top: 30px;
+            background-color: #cc5500;
+            color: #f5f5f5;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .signup-now:hover {
+            background-color: #990202;
+        }
+
+        .login-now{
+            margin-top: 30px;
+            background-color: #cc5500;
+            color: #f5f5f5;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .login-now:hover {
+            background-color: #990202;
+        }
+        .our-team{
+            margin-top: 15px;
+            background-color: #cc5500;
+            color: #f5f5f5;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .our-team:hover {
+            background-color: #990202;
+        }
+
+        section {
+            padding: 50px;
+        }
+        #targetSection1 {
+           background-color: white;
+        }
+        #targetSection {
+            background-color: rgb(218, 214, 214);
+            color: #f5f5f5;
+            padding: 50px;
+            height: 790px;
+
+        }
+    </style>
+
+</head>
+
+<body>  
+   
+
+    <main>
+
+       <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Bookly</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href= "{% url 'homepage' %}" id="home"class="home">HOME</a></li> 
+                    <li><a href= "{% url 'books' %}" id="Books" class="Books">BOOKS</a></li> 
+                    <li><a href= "{% url 'mybooks' %}" id="MyBooks" class="my-books">MY BOOKS</a></li>
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff %}
+                        <li><a href= "{% url 'addbook' %}" id="AddBooks" class="add-book"> ADD BOOK </a></li> 
+                        {% endif %}
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                    <li><a href= "{% url 'login' %}"  id="logIn"class="log-in"> LOG IN </a></li> 
+                    <li><a href= "{% url 'signup' %}" id="signUp" class="sign-up"> sign up </a></li> 
+                    {% endif %}
+                    
+                    <li><a href= "{% url 'aboutus' %}" id="AboutUs"class="aboutus"> About Us </a></li> 
+                    {% if  user.is_authenticated %}
+                    <li><button id="LogOut" class="log-out" onclick="logoutfun()">LOG OUT</button></li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+        </div>
+         <header>
+        <h1 style="color: rgb(255, 255, 255);">About Us</h1>
+        <button id="scrollButton-learnmore" class="learnmore">Learn More</button>
+
+        <div class="arrow">
+            <img src="{% static 'images/arrow.svg' %}">
+        </div>
+    </header>
+
+
+
+    <section style="height: 800px;" class="first" id="targetSection1">
+        <div class="first-content">
+             <div class="content">
+
+            <p class="text1" style="color: #990202;">LET'S MAKE T</p><p style="color: whitesmoke;">HE</p><p style="color: #990202;"> BE</p><p style="color: whitesmoke;">ST</p><p style="color: #990202;">INVESTMEN</p><p style="color: whitesmoke;">T</p></p>
+            <h2 class="text2">Five friends <br>From FCAI-CU<br> Offer you this<br>Unique experience...</h2>
+            <button id="scrollButton-view" class="learnmore">Our Mission</button>
+             </div>
+         <div class="image">
+              <img  src="{% static 'images/team work.jpg' %}" alt="">
+         </div>
+          
+        
+    </section>
+    
+    <section id="targetSection">
+
+        <h2 style="margin-top: 30px; font-size: 60px;">Our Mission</h2>
+        <div class="our-mission">
+             <div class="mis mis1">
+                <p style=" padding: auto; margin: auto; color:#990202 ; font-size: 30px; border: #f5f5f5 1px solid; border-radius: 25px; width: 70%; background-color: white;">What's Bookly?</p>
+                <h1 style="font-size: 30px; color: whitesmoke;">A place to create leaders and thinkers,<br>Add books, borrow them, delete them, admire them, and encourage others to publish more books it's“Bookly”.</h1>
+                <button id="scrollButton-ourteam" class="our-team">Our Team</button>
+             </div>
+             <div class="mis mis2">
+                <p style=" padding: auto; margin: auto; color:#990202 ; font-size: 30px;  border: #f5f5f5 1px solid; border-radius: 25px; width: 70%; background-color: white;">Where's Bookly</p>
+                <h1 style="font-size: 30px; color: whitesmoke;">In the bag, in the hand, in the office, at the airport, when you need knowledge, you will see it in your hands because...It was made with love and sincerity.</h1>
+                <a href=" {% url 'login' %} "  id="logIn"class="log-in"><button  class="login-now">Login Now..</button></a>
+             </div>
+             <div class="mis mis3">
+                <p style=" padding: auto; margin: auto; color:#990202 ; font-size: 30px;  border: #f5f5f5 1px solid; border-radius: 25px; width: 70%; background-color: white;">Why Bookly?</p>
+                <h1 style="font-size: 30px; color: whitesmoke;">Easy to use your Bookly anywhere and anytime. <br>Get to know a large encyclopedia of authors and readers. It is a house of knowledge.</h1>
+                <li><a href= "{% url 'signup' %}" id="signUp" class="sign-up"> <button class="signup-now"> Sign Up Now.. </button> </a></li> 
+             </div>
+        </div>
+    </section>
+
+
+
+    <script src="{% static 'js/all.js' %}"></script>
+        <script>
+ document.getElementById('scrollButton-learnmore').addEventListener('click', function() {
+            document.getElementById('targetSection1').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        document.getElementById('scrollButton-view').addEventListener('click', function() {
+            document.getElementById('targetSection').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        document.getElementById('scrollButton-ourteam').addEventListener('click', function() {
+            document.getElementById('about-us').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        </script>
+    
+
+       
+        
+   
+    <section id="about-us" >
+    <div class="text-1" >
+        <h1> Meet Our Team</h1>
+     </div>
+     <div class="home-container">
+         <div class="profile-card">
+             <div class="img">
+                 <img   src= "{% static 'images/ali1.jpg' %}">
+             </div>
+             <div class="caption">
+                 <h3>Ali Mohsen</h3>
+                 <p>Back End Developer</p>
+                 <div class="social-links">
+                     <a href="https://web.facebook.com/profile.php?id=100055270125254&locale=ar_AR"><i class="fa-brands fa-facebook"></i></a> 
+                     <a href="https://www.instagram.com/lymhsn374/"><i class="fa-brands fa-instagram"></i></a>
+                 </div>
+             </div>
+         </div>
+         <div class="profile-card">
+             <div class="img">
+                 <img src= "{% static 'images/Ahmed.jpg' %}" >
+             </div>
+             <div class="caption">
+                 <h3>Ahmed Rabia</h3>
+                 <p>Back End Developer</p>
+                 <div class="social-links">
+                    <a href="https://www.facebook.com/ahmed.rabie.75033149?locale=ar_AR"><i class="fa-brands fa-facebook"></i></a> 
+                    <a href="https://www.instagram.com/ahmed.rabie.75033149/"><i class="fa-brands fa-instagram"></i></a>
+                 </div>
+             </div>
+         </div>
+         <div class="profile-card">
+             <div class="img">
+                 <img src=  "{% static 'images/abdo2.jpg' %}" >
+             </div>
+             <div class="caption">
+                 <h3>Abdo Tarek</h3>
+                 <p>Front End Developer</p>
+                 <div class="social-links">
+                    <a href="https://web.facebook.com/profile.php?id=100008545686358&locale=ar_AR"><i class="fa-brands fa-facebook"></i></a> 
+                     <a href="https://www.instagram.com/abdotarek._/?hl=ar"><i class="fa-brands fa-instagram"></i></a>
+                 </div>
+             </div>
+         </div>
+         <div class="profile-card">
+             <div class="img">
+                 <img src= "{% static 'images/s7s.jpg' %}" >
+             </div>
+             <div class="caption">
+                 <h3>Hussain Abdo</h3>
+                 <p>Front End Developer</p>
+                 <div class="social-links">
+                     <a href="https://web.facebook.com/abdohussin45xtr675501?locale=ar_AR"><i class="fa-brands fa-facebook"></i></a> 
+                     <a href="https://www.instagram.com/a6do.ii/?hl=ar"><i class="fa-brands fa-instagram"></i></a>
+                 </div>
+             </div>
+         </div>
+         <div class="profile-card">
+             <div class="img">
+                 <img src= "{% static 'images/sheko.jpg' %}" >
+             </div>
+             <div class="caption">
+                 <h3>Shreif Mahmuod</h3>
+                 <p>Back End Developer</p>
+                 <div class="social-links">
+                     <a href="https://web.facebook.com/profile.php?id=100040899425928&locale=ar_AR"><i class="fa-brands fa-facebook"></i></a> 
+                     <a href="https://www.instagram.com/sherif_mahmoud7/?hl=ar"><i class="fa-brands fa-instagram"></i></a>
+                 </div>
+             </div>
+         </div>
+     </div>
+    </section>
+        
+    </main>
+
+</body>
+</html>
+        

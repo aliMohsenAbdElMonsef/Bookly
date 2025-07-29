@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>log in </title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" media="(min-width:1000px)">
+    <style>
+        body{
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5)30%,rgba(0,0,0,0.5)40%), url("{% static 'images/backGroundImage.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Bookly</h2>
+            </div>
+        </div>
+        <div class="content">
+            <h1> Welcome to our website <br><span>Bookly</span> </h1>
+            <form class="form" action="">
+                <h2>Login</h2>
+                <input type="text" name="userName" placeholder="Enter User Name..." id="user_name">
+                <input type="password" name="" placeholder="Enter Password..." id="password"><br><br>
+                <span id="alert"></span>
+                <a href="{% url 'forgetpass' %}" class="forget">forget password</a>
+                <button type="button" class="btnn" onclick="loginForm()">log in</button>
+                <p class="link">Don't have an account<br>
+                <a href="{% url 'signup' %}">Sign up </a> here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="{%static 'js/all.js'%}">
+        // let data = window.localStorage;
+        // console.log(data);
+        // // data.clear();
+        // document.querySelector(".form").addEventListener('submit', function(event) {
+        //     event.preventDefault();
+        //     let user_name = document.getElementById("user_name").value;
+        //     let users = JSON.parse(data.getItem("users"));
+        //     let exist = users.find(user => user.userName === user_name);
+        //     let ck1 = false,
+        //         ck2 = false;
+
+        //     if (user_name === "") {
+        //         let commint = document.getElementById("userNameCommint");
+        //         commint.innerHTML = `<p style="color:#c70808;font-size:12px">required</p>`;
+        //     } else if (!exist) {
+        //         let commint = document.getElementById("userNameCommint");
+        //         commint.innerHTML = `<p style="color:#c70808;font-size:12px">User Not Found</p>`;
+        //     } else {
+        //         let commint = document.getElementById("userNameCommint");
+        //         commint.innerHTML = ``;
+        //         ck1 = true;
+        //     }
+
+        //     let password = document.getElementById("password").value;
+
+        //     if (exist && exist.pass !== password) {
+        //         let commint = document.getElementById("Password");
+        //         commint.innerHTML = `<p style="color:#c70808;font-size:12px">Incorrect Password</p>`;
+        //     } else if (exist && exist.pass === password) {
+        //         let commint = document.getElementById("Password");
+        //         commint.innerHTML = ``;
+        //         ck2 = true;
+        //     }
+
+        //     if (ck1 && ck2) {
+        //         let val = "name";
+        //         data.setItem(val, JSON.stringify(user_name));
+        //         exist.loged = true;
+        //         data.setItem("users", JSON.stringify(users));
+        //         console.log(data);
+        //         window.location.href = "./home.html";
+        //     }
+        // });
+    </script>
+</body>
+</html>

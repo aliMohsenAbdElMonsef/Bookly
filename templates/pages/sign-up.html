@@ -1,0 +1,51 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up </title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" media="(min-width:1000px)">
+    <style>
+        .main {
+        width: 108%;
+        height: 150vh;
+        background: linear-gradient(to top, rgba(0,0,0,0.5)30%,rgba(0,0,0,0.5)40%), url("{% static 'images/backGroundImage.jpg' %}");
+        background-color: rgba(151, 155, 125, 0.82);
+        background-position: center;
+        background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Bookly</h2>
+            </div>
+
+        </div>
+        <div class="content">
+            <h1> Welcome to our website <br><span>Bookly</span> </h1>
+                <form class="form">
+                    <h2>Sign Up</h2>
+                    <input type="text" name="userName" id="user_name" placeholder="User Name...">
+                    <span id="userNameCommint"></span>
+                    <input type="email" name="email" id="email" placeholder="Enter Email...">
+                    <span id="Email"></span>
+                    <input type="password" name="password" id="password" placeholder="Enter Password...">
+                    <span id="Password"></span>
+                    <input type="password" name="Confirm" id="cPassword" placeholder="Confirm Password...">
+                    <span id="pass"></span>
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    <input type="radio" id="user" name="role" value="user" checked>
+                    <label for="user">User</label>
+                    <span id="alert"></span>
+                    <button type="button" class="btnn" onclick="submitSignUpForm()">Sign up</button>
+                    <p class="link"><br><a href="{% url 'login' %}"> Login </a>here</a></p>
+                </form>
+        </div>
+    </div>
+    <script src="{% static 'js/all.js' %}">
+    </script>
+</body>
+</html>

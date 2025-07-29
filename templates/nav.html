@@ -1,0 +1,22 @@
+<div class="menu">
+    <ul>
+        <li><a href= "{% url 'homepage' %}" id="home"class="home">HOME</a></li> 
+        <li><a href= "{% url 'books' %}" id="Books" class="Books">BOOKS</a></li> 
+        <li><a href= "{% url 'mybooks' %}" id="MyBooks" class="my-books">MY BOOKS</a></li>
+        {% if user.is_authenticated %}
+            {% if user.is_staff %}
+            <li><a href= "{% url 'addbook' %}" id="AddBooks" class="add-book"> ADD BOOK </a></li> 
+            {% endif %}
+        {% endif %}
+        {% if not user.is_authenticated %}
+        <li><a href= "{% url 'login' %}"  id="logIn"class="log-in"> LOG IN </a></li> 
+        <li><a href= "{% url 'signup' %}" id="signUp" class="sign-up"> sign up </a></li> 
+        {% endif %}
+        
+        <li><a href= "{% url 'aboutus' %}" id="AboutUs"class="aboutus"> About Us </a></li> 
+        {% if  user.is_authenticated %}
+        <li><button id="LogOut" class="log-out" onclick="logoutfun()">LOG OUT</button></li>
+        {% endif %}
+        
+    </ul>
+</div>

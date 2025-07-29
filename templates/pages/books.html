@@ -1,0 +1,90 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Books </title>
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
+    <style>
+        body {
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.3)30%,rgba(0,0,0,0.3)40%),  url("{% static 'images/backGroundImage.jpg' %}") ; 
+        background-color: rgba(151, 155, 125, 0.82);
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+    
+</head>
+<body>
+    <div class="main"> 
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Bookly</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href= "{% url 'homepage' %}" id="home"class="home">HOME</a></li> 
+                    <li><a href= "{% url 'books' %}" id="Books" class="Books">BOOKS</a></li> 
+                    <li><a href= "{% url 'mybooks' %}" id="MyBooks" class="my-books">MY BOOKS</a></li>
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff %}
+                        <li><a href= "{% url 'addbook' %}" id="AddBooks" class="add-book"> ADD BOOK </a></li> 
+                        {% endif %}
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                    <li><a href= "{% url 'login' %}"  id="logIn"class="log-in"> LOG IN </a></li> 
+                    <li><a href= "{% url 'signup' %}" id="signUp" class="sign-up"> sign up </a></li> 
+                    {% endif %}
+                    
+                    <li><a href= "{% url 'aboutus' %}" id="AboutUs"class="aboutus"> About Us </a></li> 
+                    {% if  user.is_authenticated %}
+                    <li><button id="LogOut" class="log-out" onclick="logoutfun()">LOG OUT</button></li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type book name,author,category ">
+                <a href="#"> <button class="btn" onclick="search()">Search</button></a> 
+            </div>
+        </div>
+        <div class="book-container">
+            {% for i in books %}
+            <div class="book {{i.category}}" booktitle="{{i.title}}" bookcategory="{{i.category}}" bookauthor="{{i.author}}" id="{{i.title}}">
+                <div class="book-inner">
+                    <div class="book-front">
+                        <img src="{{i.image.url}}" alt="">
+                    </div>
+                    <div class="book-back">
+                        <p class="author">{{i.author}}</p>
+                        <p class="description">
+                                {{i.description}}
+                            </p>
+                            <p class=category style="display:none">{{i.category}}</p>
+                            <div class="button-container" username="{{user.username}}">
+                                {%if not i.borrower_id %}
+                                <button id="button1" class="borrow-button" booktitle="{{i.title}}"  username="{{user.username}}" userid="{{user.id}}">Borrow</button>
+                                {% endif %}
+                                {%if i.borrower_id == user%}
+                                <button id="button2" class="cancel-button" booktitle="{{i.title}}"  username="{{user.username}}" userid="{{user.id}}" >unBorrow</button>
+                                {%endif%}
+                                {% if user.is_staff %}
+                                <button id="button3" class="delete-button" booktitle="{{i.title}}">Delete</button>
+                                <button id="button2" class = "edit-button"  bookid = "{{i.id}}" booktitle="{{i.title}}" bookauthor="{{i.author}}" bookcategory="{{i.category}}" >Edit</button>
+                                </a>
+                                {% endif %}
+                            
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+            {% endfor %}
+        </div>
+    </div>  
+            <script src="{% static 'js/all.js'%}"></script>     
+            </div>
+
+    </div>
+</body>
+</html>
