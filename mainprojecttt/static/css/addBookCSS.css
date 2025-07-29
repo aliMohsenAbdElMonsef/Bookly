@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #000000; /* Background of the scrollbar track */
+}
+body::-webkit-scrollbar-track:hover {
+  background: #d3bba3; /* Background of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #990202; /* Scrollbar thumb color */
+  border-radius: 15px; /* Round the corners of the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #122f56bd; /* Color of the scrollbar thumb when hovered */
+}
+body {
+  background: linear-gradient(#3e3c3c, rgba(0, 0, 0, 0.841), #000000);
+}
+.main {
+  width: 100%;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5) 30%,
+      rgba(0, 0, 0, 0.5) 40%
+    ),
+    url(./backGroundImage.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar {
+  width: 2000px;
+  height: 24px;
+  margin-top: -10px;
+  padding-bottom: 50px;
+  z-index: 1000;
+  position: fixed;
+  background-color: #000000;
+}
+
+.log-in {
+  padding-right: 10px;
+  position: absolute;
+  right: 550px;
+  top: 35px;
+}
+
+.log-out {
+  padding-right: 10px;
+  position: absolute;
+  right: 550px;
+  top: 35px;
+}
+
+.aboutus {
+  padding-right: 10px;
+  position: absolute;
+  right: 635px;
+  top: 35px;
+}
+
+.icon {
+  width: 200px;
+  float: left;
+  height: 70px;
+}
+
+.logo {
+  color: #c70808;
+  font-size: 35px;
+  font-family: Arial;
+  padding-left: 5px;
+  float: left;
+  padding-top: 10px;
+  margin-top: 5px;
+}
+
+.menu {
+  width: 570px;
+  float: left;
+  height: 70px;
+}
+
+ul {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li {
+  list-style: none;
+  margin-left: 50px;
+  margin-top: 27px;
+  font-size: 14px;
+}
+
+ul li a,
+button {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #fff;
+  font-family: Arial;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+  color: #c70808;
+}
+
+.content {
+  width: 1200px;
+  height: auto;
+  margin: auto;
+  color: #fff;
+  position: relative;
+}
+
+.content h1 {
+  font-family: "Times New Roman";
+  font-size: 50px;
+  padding-left: 20px;
+  margin-top: 9%;
+  letter-spacing: 2px;
+}
+
+.content span {
+  color: #c70808;
+  font-size: 65px;
+}
+textarea {
+  width: 96%;
+  background: rgba(0, 0, 0, 0.1);
+  /* opacity: .1; */
+  border-color: white;
+  /* border-width: 2px; */
+  color: white;
+  padding: 2px;
+}
+#imageInput {
+  background-color: black;
+  height: auto;
+}
+.form {
+  width: 277px;
+  height: fit-content;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.8) 50%
+  );
+  position: absolute;
+  top: 115px;
+  left: 870px;
+  transform: translate(0%, -5%);
+  border-radius: 10px;
+  padding: 25px;
+  -webkit-transform: translate(0%, -5%);
+  -moz-transform: translate(0%, -5%);
+  -ms-transform: translate(0%, -5%);
+  -o-transform: translate(0%, -5%);
+}
+
+.form h2 {
+  width: 220px;
+  font-family: sans-serif;
+  text-align: center;
+  color: #c70808;
+  font-size: 22px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 8px;
+  margin-left: 22px;
+}
+
+.form input {
+  width: 240px;
+  height: 35px;
+  background: transparent;
+  border-bottom: 1px solid #c70808;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 30px;
+  font-family: sans-serif;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: #fff;
+  font-family: Arial;
+}
+
+.btnn {
+  width: 240px;
+  height: 40px;
+  background: #c70808;
+  border: none;
+  margin-top: 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.4s ease;
+}
+.btnn:hover {
+  background: #fff;
+  color: #c70808;
+}
+.btnn a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+body::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #000000; /* Background of the scrollbar track */
+}
+body::-webkit-scrollbar-track:hover {
+  background: #d3bba3; /* Background of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #990202; /* Scrollbar thumb color */
+  border-radius: 15px; /* Round the corners of the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #122f56bd; /* Color of the scrollbar thumb when hovered */
+}
